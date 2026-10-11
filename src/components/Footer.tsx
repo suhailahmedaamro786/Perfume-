@@ -144,13 +144,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#221F1A] pt-8 text-xs text-[#8C8577] sm:flex-row">
-          <p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-[#221F1A] pt-8 text-xs text-[#8C8577] lg:flex-row">
+          <p className="text-center lg:text-left">
             &copy; {new Date().getFullYear()} {STORE_CONFIG.brandName}. All rights reserved. Prices
             shown in Pakistani Rupees ({STORE_CONFIG.currencyCode}).
           </p>
-          <p>
+          <p className="text-center">
             Orders are placed via WhatsApp and confirmed directly with the seller prior to dispatch.
+          </p>
+          <p className="text-center lg:text-right whitespace-nowrap shrink-0">
+            Powered by{' '}
+            <span className="font-serif-display text-sm font-semibold tracking-[0.12em] text-[#D4AF37]">
+              SK DEV TEAM
+            </span>
           </p>
         </div>
       </div>
