@@ -45,10 +45,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
   return (
     <article
-      className={`group flex flex-col justify-between transition-transform duration-200 hover:-translate-y-0.5 ${
+      className={`luxury-card-hover group flex flex-col justify-between ${
         isLight
-          ? 'border border-[#E5DEC9] bg-white text-[#141413]'
-          : 'border border-[#26231D] bg-[#141414] text-[#F9F6F0]'
+          ? 'border border-[#E5DEC9] bg-white text-[#141413] hover:border-[#D4AF37]/70'
+          : 'border border-[#26231D] bg-[#141414] text-[#F9F6F0] hover:border-[#D4AF37]/60'
       }`}
     >
       <div>

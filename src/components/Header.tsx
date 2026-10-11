@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
 
       {/* Top Navigation Bar following strict 3-zone contract */}
       <header
-        className={`flex items-center justify-between gap-8 border-b px-6 py-4 backdrop-blur-md transition-colors ${
+        className={`flex items-center justify-between gap-4 sm:gap-8 border-b px-4 sm:px-6 py-3.5 sm:py-4 backdrop-blur-md transition-colors ${
           isLight
             ? 'border-[#E5DEC9] bg-[#FAF7F0]/95 text-[#141413]'
             : 'border-[#26231D] bg-[#0B0B0B]/95 text-[#F9F6F0]'
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             e.preventDefault();
             handleNavClick('home');
           }}
-          className="font-serif-display text-2xl font-semibold tracking-[0.14em] text-[#D4AF37] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-[#D4AF37]"
+          className="font-serif-display text-xl sm:text-2xl font-semibold tracking-[0.14em] text-[#D4AF37] whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-[#D4AF37]"
         >
           {STORE_CONFIG.brandName}
         </a>
@@ -126,11 +126,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         </nav>
 
         {/* Zone 3: Primary Shopping Bag Action (+ Mobile Menu button on small viewports) */}
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
           <button
             type="button"
             onClick={() => handleNavClick('cart')}
-            className="flex items-center gap-2 bg-[#D4AF37] px-4 py-2 text-xs font-semibold text-[#0B0B0B] whitespace-nowrap shrink-0 transition-colors hover:bg-[#F1D27A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+            className="flex min-h-[40px] items-center gap-2 bg-[#D4AF37] px-3.5 sm:px-4 py-2 text-xs font-semibold text-[#0B0B0B] whitespace-nowrap shrink-0 transition-colors hover:bg-[#F1D27A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
           >
             <ShoppingBag className="h-3.5 w-3.5" aria-hidden="true" />
             <span className="font-mono-num">Bag ({cartCount})</span>
@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation menu"
-            className={`flex h-9 w-9 items-center justify-center border lg:hidden ${
+            className={`flex h-10 w-10 items-center justify-center border lg:hidden ${
               isLight
                 ? 'border-[#E5DEC9] text-[#141413]'
                 : 'border-[#2A2721] text-[#F9F6F0]'
@@ -152,16 +152,16 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile & Tablet Navigation Drawer */}
       {mobileMenuOpen && (
         <div
-          className={`border-b px-6 py-5 lg:hidden ${
+          className={`max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b px-4 sm:px-6 py-5 lg:hidden shadow-2xl ${
             isLight
               ? 'border-[#E5DEC9] bg-[#FAF7F0] text-[#141413]'
               : 'border-[#26231D] bg-[#121212] text-[#F9F6F0]'
           }`}
         >
-          <nav aria-label="Mobile Navigation" className="flex flex-col space-y-3">
+          <nav aria-label="Mobile Navigation" className="grid grid-cols-1 sm:grid-cols-2 gap-1">
             {allMobileLinks.map((item) => {
               const isActive = currentPage === item.route;
               return (
@@ -169,25 +169,27 @@ export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                   key={item.route}
                   type="button"
                   onClick={() => handleNavClick(item.route)}
-                  className={`flex items-center justify-between py-1.5 text-left text-sm font-medium ${
-                    isActive ? 'text-[#D4AF37]' : ''
+                  className={`flex min-h-[44px] items-center justify-between px-2 py-2 text-left text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'bg-[#D4AF37]/15 text-[#D4AF37]'
+                      : 'hover:bg-[#D4AF37]/5'
                   }`}
                 >
                   <span>{item.label}</span>
                 </button>
               );
             })}
-            <div className="pt-3 border-t border-[#2A2721] flex items-center justify-between">
-              <span className="text-xs text-[#A39E93]">Display Appearance</span>
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className="border border-[#D4AF37]/40 px-3 py-1 text-xs font-medium text-[#D4AF37] whitespace-nowrap shrink-0"
-              >
-                {theme === 'dark' ? 'Switch to Ivory Light' : 'Switch to Obsidian Dark'}
-              </button>
-            </div>
           </nav>
+          <div className="mt-4 pt-4 border-t border-[#2A2721] flex items-center justify-between">
+            <span className="text-xs text-[#A39E93]">Display Appearance</span>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="min-h-[38px] border border-[#D4AF37]/40 px-3.5 py-1.5 text-xs font-medium text-[#D4AF37] whitespace-nowrap shrink-0"
+            >
+              {theme === 'dark' ? 'Switch to Ivory Light' : 'Switch to Obsidian Dark'}
+            </button>
+          </div>
         </div>
       )}
     </div>

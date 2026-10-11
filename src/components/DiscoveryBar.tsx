@@ -32,13 +32,13 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
 
   return (
     <div
-      className={`border-b px-6 py-2.5 text-xs transition-colors ${
+      className={`border-b px-4 sm:px-6 py-2.5 text-xs transition-colors ${
         isLight
           ? 'border-[#E5DEC9] bg-[#F3EFE4] text-[#4A453C]'
           : 'border-[#1F1D18] bg-[#111111] text-[#A39E93]'
       }`}
     >
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4">
+      <div className="mx-auto flex max-w-7xl flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
         {/* Quick Collection Links */}
         <div className="hidden md:flex items-center gap-5">
           <button
@@ -91,7 +91,7 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
         </div>
 
         {/* Search Input + Wishlist + Theme */}
-        <div className="flex flex-1 md:flex-initial items-center justify-end gap-4">
+        <div className="flex w-full md:w-auto items-center justify-between sm:justify-end gap-2 sm:gap-3">
           <form onSubmit={handleFormSubmit} className="relative flex-1 md:w-64">
             <Search
               className="pointer-events-none absolute top-1/2 left-3 h-3.5 w-3.5 -translate-y-1/2 text-[#A39E93]"
@@ -103,7 +103,7 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder="Search notes, oud, rose, amber..."
               aria-label="Search fragrances by name or note"
-              className={`w-full border py-1.5 pr-3 pl-8 text-xs transition-colors focus:border-[#D4AF37] focus:outline-none ${
+              className={`w-full min-h-[38px] border py-1.5 pr-3 pl-8 text-xs transition-colors focus:border-[#D4AF37] focus:outline-none ${
                 isLight
                   ? 'border-[#DCD3BE] bg-white text-[#141413] placeholder-[#8C8577]'
                   : 'border-[#26231D] bg-[#171717] text-[#F9F6F0] placeholder-[#736E64]'
@@ -115,7 +115,7 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
             type="button"
             onClick={() => onNavigate('wishlist')}
             aria-label={`View saved wishlist (${wishlistIds.length} items)`}
-            className={`flex items-center gap-1.5 px-2.5 py-1.5 border whitespace-nowrap shrink-0 transition-colors ${
+            className={`flex min-h-[38px] items-center gap-1.5 px-2.5 sm:px-3 py-1.5 border whitespace-nowrap shrink-0 transition-colors ${
               currentPage === 'wishlist'
                 ? 'border-[#D4AF37] text-[#D4AF37]'
                 : isLight
@@ -129,7 +129,9 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
               }`}
               aria-hidden="true"
             />
-            <span className="font-mono-num">Wishlist ({wishlistIds.length})</span>
+            <span className="font-mono-num">
+              <span className="hidden xs:inline">Wishlist </span>({wishlistIds.length})
+            </span>
           </button>
 
           <button
@@ -139,7 +141,7 @@ export const DiscoveryBar: React.FC<DiscoveryBarProps> = ({
               theme === 'dark' ? 'Switch to light ivory theme' : 'Switch to dark luxury theme'
             }
             title={theme === 'dark' ? 'Switch to Ivory Theme' : 'Switch to Obsidian Theme'}
-            className={`hidden sm:flex h-7 w-7 items-center justify-center border transition-colors ${
+            className={`flex h-[38px] w-[38px] shrink-0 items-center justify-center border transition-colors ${
               isLight
                 ? 'border-[#DCD3BE] bg-white text-[#141413] hover:border-[#D4AF37]'
                 : 'border-[#26231D] bg-[#171717] text-[#D4AF37] hover:border-[#D4AF37]'

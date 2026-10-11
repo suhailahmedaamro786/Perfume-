@@ -5,6 +5,7 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   html {
@@ -22,6 +23,63 @@
   }
 }
 
+@keyframes skPageEnter {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes skFloatSubtle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.animate-page-enter {
+  animation: skPageEnter 280ms var(--ease-luxury) both;
+  will-change: transform, opacity;
+}
+
+.animate-float-subtle {
+  animation: skFloatSubtle 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.luxury-card-hover {
+  transition:
+    transform 200ms var(--ease-luxury),
+    border-color 200ms var(--ease-luxury),
+    box-shadow 200ms var(--ease-luxury);
+  will-change: transform;
+}
+
+.luxury-card-hover:hover {
+  transform: translate3d(0, -3px, 0);
+  box-shadow: 0 14px 32px -12px rgba(212, 175, 55, 0.14);
+}
+
+.luxury-btn-sheen {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 160ms var(--ease-luxury),
+    background-color 160ms var(--ease-luxury),
+    border-color 160ms var(--ease-luxury),
+    color 160ms var(--ease-luxury);
+}
+
+.luxury-btn-sheen:active {
+  transform: scale(0.985);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -30,5 +88,12 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .animate-page-enter,
+  .animate-float-subtle,
+  .luxury-card-hover:hover {
+    animation: none !important;
+    transform: none !important;
   }
 }

@@ -230,7 +230,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
             : 'border-[#26231D] bg-[#141414]'
         }`}
       >
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="grid grid-cols-1 sm:flex sm:flex-wrap items-center gap-2.5 sm:gap-3">
           <div className="flex items-center gap-1.5 text-xs font-medium text-[#D4AF37]">
             <SlidersHorizontal className="h-3.5 w-3.5" aria-hidden="true" />
             <span>Refine:</span>
@@ -244,7 +244,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
               onChange={(e) =>
                 setSelectedCategory(e.target.value as ProductCategory | 'All')
               }
-              className={`border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
+              className={`w-full sm:w-auto min-h-[40px] border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
                 isLight
                   ? 'border-[#DCD3BE] bg-[#FAF7F0] text-[#141413]'
                   : 'border-[#2A2721] bg-[#0B0B0B] text-[#F9F6F0]'
@@ -266,7 +266,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
             onChange={(e) =>
               setSelectedFamily(e.target.value as FragranceFamily | 'All')
             }
-            className={`border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
+            className={`w-full sm:w-auto min-h-[40px] border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
               isLight
                 ? 'border-[#DCD3BE] bg-[#FAF7F0] text-[#141413]'
                 : 'border-[#2A2721] bg-[#0B0B0B] text-[#F9F6F0]'
@@ -289,7 +289,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
                 e.target.value as 'All' | '30ml' | '50ml' | '100ml'
               )
             }
-            className={`border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
+            className={`w-full sm:w-auto min-h-[40px] border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
               isLight
                 ? 'border-[#DCD3BE] bg-[#FAF7F0] text-[#141413]'
                 : 'border-[#2A2721] bg-[#0B0B0B] text-[#F9F6F0]'
@@ -305,7 +305,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
             <button
               type="button"
               onClick={resetAllFilters}
-              className="inline-flex items-center gap-1 border border-[#D4AF37]/40 px-2.5 py-1.5 text-xs text-[#D4AF37] hover:bg-[#D4AF37]/10 whitespace-nowrap shrink-0"
+              className="inline-flex min-h-[40px] items-center justify-center gap-1 border border-[#D4AF37]/40 px-3 py-1.5 text-xs text-[#D4AF37] hover:bg-[#D4AF37]/10 whitespace-nowrap shrink-0"
             >
               <X className="h-3 w-3" aria-hidden="true" />
               <span>Reset Filters</span>
@@ -314,7 +314,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
         </div>
 
         {/* Sort Control & Count */}
-        <div className="flex items-center justify-between gap-4 sm:justify-end">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#26231D] pt-3 lg:border-t-0 lg:pt-0 sm:justify-end">
           <span className="font-mono-num text-xs text-[#A39E93]">
             Showing {filteredProducts.length}{' '}
             {filteredProducts.length === 1 ? 'fragrance' : 'fragrances'}
@@ -336,7 +336,7 @@ export const CataloguePage: React.FC<CataloguePageProps> = ({
                     | 'name-asc'
                 )
               }
-              className={`border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
+              className={`min-h-[40px] border px-3 py-1.5 text-xs focus:border-[#D4AF37] focus:outline-none ${
                 isLight
                   ? 'border-[#DCD3BE] bg-[#FAF7F0] text-[#141413]'
                   : 'border-[#2A2721] bg-[#0B0B0B] text-[#F9F6F0]'

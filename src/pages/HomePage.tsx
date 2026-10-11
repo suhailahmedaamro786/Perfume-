@@ -112,11 +112,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
                 100ml flacons.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                 <button
                   type="button"
                   onClick={() => onNavigate('shop')}
-                  className="inline-flex items-center gap-2.5 bg-[#D4AF37] px-6 py-3.5 text-xs font-semibold text-[#0B0B0B] whitespace-nowrap shrink-0 transition-colors duration-150 hover:bg-[#F1D27A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                  className="inline-flex min-h-[44px] items-center justify-center gap-2.5 bg-[#D4AF37] px-6 py-3.5 text-xs font-semibold text-[#0B0B0B] whitespace-nowrap shrink-0 transition-colors duration-150 hover:bg-[#F1D27A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
                 >
                   <span>Shop Collection</span>
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -125,7 +125,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
                 <button
                   type="button"
                   onClick={() => onNavigate('best-sellers')}
-                  className="inline-flex items-center gap-2 border border-[#D4AF37]/60 bg-transparent px-6 py-3.5 text-xs font-semibold text-[#F1D27A] whitespace-nowrap shrink-0 transition-colors duration-150 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
+                  className="inline-flex min-h-[44px] items-center justify-center gap-2 border border-[#D4AF37]/60 bg-transparent px-6 py-3.5 text-xs font-semibold text-[#F1D27A] whitespace-nowrap shrink-0 transition-colors duration-150 hover:border-[#D4AF37] hover:bg-[#D4AF37]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4AF37]"
                 >
                   <span>Explore Best Sellers</span>
                 </button>
@@ -251,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
 
             {/* Interactive Filter Tabs */}
             <div
-              className={`inline-flex items-center gap-1 border p-1 ${
+              className={`flex overflow-x-auto max-w-full items-center gap-1 border p-1 ${
                 isLight ? 'border-[#DCD3BE] bg-white' : 'border-[#26231D] bg-[#141414]'
               }`}
               role="tablist"
@@ -272,7 +272,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSelectProduct 
                     onClick={() =>
                       setCuratedTab(tab.id as 'featured' | 'best-sellers' | 'new-arrivals')
                     }
-                    className={`px-4 py-2 text-xs font-semibold whitespace-nowrap shrink-0 transition-colors ${
+                    className={`flex-1 sm:flex-initial px-3.5 sm:px-4 py-2 text-xs font-semibold whitespace-nowrap shrink-0 transition-colors ${
                       active
                         ? 'bg-[#D4AF37] text-[#0B0B0B]'
                         : isLight

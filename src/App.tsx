@@ -7,6 +7,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { DiscoveryBar } from './components/DiscoveryBar';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
+import { SeoHelmet } from './components/SeoHelmet';
 import { ToastContainer } from './components/ToastContainer';
 import { StoreProvider, useStore } from './context/StoreContext';
 import { PRODUCTS } from './data/products';
@@ -22,7 +23,6 @@ import {
   PolicyPage,
 } from './pages/StaticPages';
 import { PageRoute } from './types/store';
-import { updateDocumentSeo } from './utils/seo';
 
 const VALID_ROUTES: PageRoute[] = [
   'home',
@@ -119,10 +119,6 @@ const AppShell: React.FC = () => {
     ? PRODUCTS.find((p) => p.slug === productSlug) || null
     : null;
 
-  useEffect(() => {
-    updateDocumentSeo(page, selectedProduct);
-  }, [page, selectedProduct]);
-
   const handleSearchChange = (q: string) => {
     setSearchQuery(q);
     if (
@@ -152,12 +148,19 @@ const AppShell: React.FC = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col transition-colors ${
+      className={`min-h-screen flex flex-col overflow-x-hidden transition-colors ${
         isLight
           ? 'bg-[#FAF7F0] text-[#141413]'
           : 'bg-[#0B0B0B] text-[#F9F6F0]'
       }`}
     >
+      {/* Reusable Helmet-like Dynamic SEO Metadata Component */}
+      <SeoHelmet
+        page={page}
+        product={selectedProduct}
+        searchQuery={searchQuery}
+      />
+
       <Header currentPage={page} onNavigate={navigateTo} />
 
       <DiscoveryBar
@@ -168,7 +171,10 @@ const AppShell: React.FC = () => {
         onNavigate={navigateTo}
       />
 
-      <main className="flex-1">
+      <main
+        key={`${page}-${productSlug || ''}`}
+        className="flex-1 animate-page-enter"
+      >
         {page === 'home' && (
           <HomePage
             onNavigate={navigateTo}
