@@ -1,11 +1,16 @@
 import { Product } from '../types/store';
+import heroPerfumeLuxuryImg from '../assets/images/hero_perfume_luxury_1791710680466.jpg';
+import perfumeOudObsidianImg from '../assets/images/perfume_oud_obsidian_1791710694027.jpg';
+import perfumeRoseElixirImg from '../assets/images/perfume_rose_elixir_1791710706269.jpg';
+import perfumeAmberNoirImg from '../assets/images/perfume_amber_noir_1791710716336.jpg';
+import perfumeCitrusGoldImg from '../assets/images/perfume_citrus_gold_1791710726567.jpg';
 
-export const HERO_IMAGE = '/src/assets/images/hero_perfume_luxury_1791710680466.jpg';
+export const HERO_IMAGE = heroPerfumeLuxuryImg;
 
-const IMG_OUD = '/src/assets/images/perfume_oud_obsidian_1791710694027.jpg';
-const IMG_ROSE = '/src/assets/images/perfume_rose_elixir_1791710706269.jpg';
-const IMG_AMBER = '/src/assets/images/perfume_amber_noir_1791710716336.jpg';
-const IMG_CITRUS = '/src/assets/images/perfume_citrus_gold_1791710726567.jpg';
+const IMG_OUD = perfumeOudObsidianImg;
+const IMG_ROSE = perfumeRoseElixirImg;
+const IMG_AMBER = perfumeAmberNoirImg;
+const IMG_CITRUS = perfumeCitrusGoldImg;
 
 /**
  * SK PERFUMES — Official Original Fragrance Catalogue
