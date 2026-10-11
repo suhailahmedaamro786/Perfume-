@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>/?page=shop</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>/?page=men</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=women</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=unisex</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=best-sellers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=new-arrivals</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=special-offers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>/?page=about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/?page=contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>/?page=shipping-policy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>/?page=returns-policy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>/?page=privacy-policy</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>/?page=terms</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+</urlset>

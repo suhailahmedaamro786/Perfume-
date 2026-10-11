@@ -1,0 +1,6 @@
+{
+  "name": "SK PERFUMES — Luxury Fragrances",
+  "description": "Luxury Fragrances. Timeless Elegance. Explore captivating fine perfumes crafted for every moment, with nationwide delivery across Pakistan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
